@@ -1,1 +1,1 @@
-# Econexus-app
+# EcoNexus-app
