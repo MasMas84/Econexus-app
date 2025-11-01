@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoNexus Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌿</div>
+        <div>
+          <h1>EcoNexus</h1>
+          <p>Jouw duurzame gids</p>
+        </div>
+      </div>
+      <section class="info">
+        <h2>Waarmee kan ik helpen?</h2>
+        <ul>
+          <li>Advies over groene energie</li>
+          <li>Duurzame lifestyle tips</li>
+          <li>Cijfers en data over klimaat</li>
+          <li>Eco-strategieën voor bedrijven</li>
+        </ul>
+      </section>
+      <section class="cta">
+        <h3>Nieuw gesprek</h3>
+        <p>Klik op de knop hieronder om met EcoNexus te chatten.</p>
+        <button id="new-chat" type="button">Start fris gesprek</button>
+      </section>
+      <section class="api-note">
+        <h3>Gemini integratie</h3>
+        <p>
+          EcoNexus gebruikt de Google Gemini API voor realtime antwoorden. Plaats je sleutel in
+          <code>config.js</code> om verbinding te maken en laad de pagina opnieuw.
+        </p>
+      </section>
+      <footer>
+        <p>EcoNexus is jouw custom GPT, ontwikkeld voor duurzame inzichten.</p>
+      </footer>
+    </aside>
+
+    <main class="chat">
+      <header class="chat__header">
+        <div>
+          <h2>Chat met EcoNexus</h2>
+          <p>Stel een vraag en ontdek groene oplossingen.</p>
+        </div>
+        <div class="status" id="connection-status">
+          <span class="status__indicator" aria-hidden="true"></span>
+          <span class="status__label">API-sleutel ontbreekt</span>
+        </div>
+      </header>
+
+      <section id="conversation" class="chat__messages" aria-live="polite">
+        <!-- Messages get injected here -->
+      </section>
+
+      <form id="chat-form" class="chat__input" autocomplete="off">
+        <label class="visually-hidden" for="message">Bericht aan EcoNexus</label>
+        <textarea id="message" name="message" rows="2" placeholder="Vraag EcoNexus naar duurzame strategieën..." required></textarea>
+        <button type="submit" aria-label="Verstuur bericht">Verstuur</button>
+      </form>
+    </main>
+  </div>
+
+  <template id="message-template">
+    <article class="message">
+      <div class="message__avatar" aria-hidden="true"></div>
+      <div class="message__content">
+        <header>
+          <h3 class="message__author"></h3>
+          <time class="message__time" datetime=""></time>
+        </header>
+        <p class="message__text"></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
